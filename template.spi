@@ -1,0 +1,72 @@
+*  Generated for: HSPICE
+*  Design library name: write_0.8V
+*  Design cell name: write_sep
+*  Design view name: schematic
+
+
+.option MCBRIEF=2
+.param vtn22=AGAUSS(0.6,0.05,1.0) vtn23=AGAUSS(0.6.0.05.1.0)
++ vtn24=AGAUSS(0.6,0.05,1.0) vtn25=AGAUSS(0.6,0.05,1.0)
++ vtp26=AGAUSS(-0.2,0.05,1.0) vtp32=AGAUSS(-0.2,0.05,1.0)
+.option PARHIER = LOCAL
+.include '/home/sldl77/Workspace/cc/addfile.txt'
+.option PORT_VOLTAGE_SCALE_TO_2X = 1
+.option SAMPLING_METHOD=SRS
+.option SEED=1
+
+.option WDF=1
+.temp 25
+.include '/home/sldl77/Workspace/cc/write_sep/parameter_sep.txt'
+*Custom Compiler Version Q-2020.03-SP2-1
+*Tue Jul  6 15:32:20 2021
+
+.global gnd! vdd!
+********************************************************************************
+* Library          : write_0.8V
+* Cell             : write_sep
+* View             : schematic
+* View Search List : hspice hspiceD schematic spice veriloga
+* View Stop List   : hspice hspiceD
+********************************************************************************
+m32 n2 n1 vdd! vdd! PCH32 w=90n l=45n ad='(90n*0.14u)' as='(90n*0.14u)' pd='(2*(90n+0.14u))'
++  ps='(2*(90n+0.14u))'
+m26 n1 n2 vdd! vdd! PCH26 w=90n l=45n ad='(90n*0.14u)' as='(90n*0.14u)' pd='(2*(90n+0.14u))'
++  ps='(2*(90n+0.14u))'
+m1 blb chg vdd! vdd! PCH w=90n l=45n ad='(90n*0.14u)' as='(90n*0.14u)' pd='(2*(90n+0.14u))'
++  ps='(2*(90n+0.14u))'
+m0 bl chg vdd! vdd! PCH w=90n l=45n ad='(90n*0.14u)' as='(90n*0.14u)' pd='(2*(90n+0.14u))'
++  ps='(2*(90n+0.14u))'
+m28 bl wd gnd! gnd! NCH w=300n l=45n ad='(300n*0.14u)' as='(300n*0.14u)' pd='(2*(300n+0.14u))'
++  ps='(2*(300n+0.14u))'
+m27 blb gnd! gnd! gnd! NCH w=300n l=45n ad='(300n*0.14u)' as='(300n*0.14u)' pd='(2*(300n+0.14u))'
++  ps='(2*(300n+0.14u))'
+m25 n1 wl bl gnd! NCH25 w=60n l=45n ad='(60n*0.14u)' as='(60n*0.14u)' pd='(2*(60n+0.14u))'
++  ps='(2*(60n+0.14u))'
+m24 n2 n1 gnd! gnd! NCH24 w=60n l=45n ad='(60n*0.14u)' as='(60n*0.14u)' pd='(2*(60n+0.14u))'
++  ps='(2*(60n+0.14u))'
+m23 n1 n2 gnd! gnd! NCH23 w=60n l=45n ad='(60n*0.14u)' as='(60n*0.14u)' pd='(2*(60n+0.14u))'
++  ps='(2*(60n+0.14u))'
+m22 n2 wl blb gnd! NCH22 w=60n l=45n ad='(60n*0.14u)' as='(60n*0.14u)' pd='(2*(60n+0.14u))'
++  ps='(2*(60n+0.14u))'
+v30 wd gnd! dc=0 pulse ( 0 0.8 4.75n 0.5n 0.5n 9.5n 20n )
+v11 wl gnd! dc=0 pulse ( 0 0.8 4.75n 0.5n 0.5n 9.5n 20n )
+v10 chg gnd! dc=0 pulse ( 0 0.8 4.75n 0.5n 0.5n 9.5n 20n )
+
+
+
+
+
+
+
+
+
+.tran 100p 20n start=0 uic sweep monte=100 firstrun=1
+.option opfile=1 split_dp=1
+.option probe=1
+.probe tran v(*) level=1
+.probe tran v(N1)
+
+
+
+
+.end
